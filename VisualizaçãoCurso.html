@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Exemplo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .sidebar {
+      flex: 1;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .main-content {
+      flex: 2;
+      padding: 20px;
+    }
+
+    .course-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .lesson-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .lesson-item {
+      margin-bottom: 10px;
+    }
+
+    .lesson-link {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .lesson-link:hover {
+      background-color: #ddd;
+    }
+
+    .video-container {
+      flex: 2;
+      padding: 20px;
+    }
+
+    .video-frame {
+      width: 100%;
+    }
+
+    .course-description {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h2>Aulas</h2>
+      <ul class="lesson-list">
+        <li class="lesson-item"><a href="#" class="lesson-link" onclick="changeVideo('M5cL8T91yKQ')">Aula 1: Introdução</a></li>
+        <li class="lesson-item"><a href="#" class="lesson-link" onclick="changeVideo('YbDDwUel0CI')">Aula 2: Conceitos Básicos</a></li>
+        <li class="lesson-item"><a href="#" class="lesson-link" onclick="changeVideo('YbDDwUel0CI')">Aula 3: Prática</a></li>
+        <!-- Adicione mais itens conforme necessário -->
+      </ul>
+    </div>
+    <div class="video-container">
+      <h2>Vídeo da Aula</h2>
+      <iframe id="videoFrame" class="video-frame" src="https://youtu.be/M5cL8T91yKQ" frameborder="0" allowfullscreen></iframe>
+      <div class="course-description">
+        <h3>Descrição do Curso</h3>
+        <p>
+          Esta é uma descrição do curso de exemplo. Aqui você pode descrever o conteúdo do curso, os objetivos, os tópicos que serão cobertos e qualquer outra informação relevante.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function changeVideo(videoId) {
+      var videoFrame = document.getElementById('videoFrame');
+      videoFrame.src = 'https://www.youtube.com/embed/' + videoId;
+    }
+  </script>
+</body>
+</html>

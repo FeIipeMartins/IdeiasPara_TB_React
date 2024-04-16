@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Curso</title>
+</head>
+<body>
+    <h1>Criação de Curso</h1>
+    <form action="/submit" method="post" enctype="multipart/form-data" id="cursoForm">
+        <div>
+            <label for="nomeCurso">Nome do Curso:</label><br>
+            <input type="text" id="nomeCurso" name="nomeCurso" required><br>
+        </div>
+        <div id="aulas">
+            <div class="aula">
+                <h2>Aula 1</h2>
+                <label for="tituloAula1">Título da Aula:</label><br>
+                <input type="text" id="tituloAula1" name="tituloAula1" required><br>
+                <label for="descricaoAula1">Descrição:</label><br>
+                <textarea id="descricaoAula1" name="descricaoAula1" rows="4" cols="50" required></textarea><br>
+                <label for="arquivoAula1">Selecione o arquivo:</label><br>
+                <input type="file" id="arquivoAula1" name="arquivoAula1" accept=".pdf, .doc, .docx"><br>
+                <hr>
+            </div>
+        </div>
+        <button type="button" id="addAulaBtn">Adicionar uma nova aula</button><br><br>
+        <button type="submit">Enviar Curso</button>
+    </form>
+
+    <script>
+        document.getElementById('addAulaBtn').addEventListener('click', function() {
+            var numAulas = document.querySelectorAll('.aula').length + 1;
+            var novaAula = `
+                <div class="aula">
+                    <h2>Aula ${numAulas}</h2>
+                    <label for="tituloAula${numAulas}">Título da Aula:</label><br>
+                    <input type="text" id="tituloAula${numAulas}" name="tituloAula${numAulas}" required><br>
+                    <label for="descricaoAula${numAulas}">Descrição:</label><br>
+                    <textarea id="descricaoAula${numAulas}" name="descricaoAula${numAulas}" rows="4" cols="50" required></textarea><br>
+                    <label for="arquivoAula${numAulas}">Selecione o arquivo:</label><br>
+                    <input type="file" id="arquivoAula${numAulas}" name="arquivoAula${numAulas}" accept=".pdf, .doc, .docx"><br>
+                    <hr>
+                </div>
+            `;
+            document.getElementById('aulas').insertAdjacentHTML('beforeend', novaAula);
+        });
+    </script>
+</body>
+</html>
